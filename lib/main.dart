@@ -17,14 +17,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.dark,
       theme: ThemeData(
-        fontFamily: GoogleFonts.lato().fontFamily ,
+        fontFamily: GoogleFonts.lato().fontFamily,
         // primaryTextTheme: GoogleFonts.latoTextTheme(),
       ),
       darkTheme: ThemeData(
         brightness: Brightness.light,
       ),
       routes: {
-        "/": (context) => LoginPage(),
+        "/": (context) => HomePage(),
         MyRoutes.homeRoute: (context) => HomePage(),
         MyRoutes.loginRoute: (context) => LoginPage(),
       },
