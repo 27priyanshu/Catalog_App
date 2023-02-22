@@ -22,6 +22,13 @@ class MyDrawer extends StatelessWidget {
                   currentAccountPicture: CircleAvatar(
                     backgroundImage: NetworkImage(imageUrl),
                   ),
+                  // decoration: BoxDecoration(
+                  //   //color: Colors.yellow,
+                  //   image: DecorationImage(
+                  //     image: AssetImage('assets/images/dev (2) - Copy.jpeg'),
+                  //     fit: BoxFit.cover,
+                  //   ),
+                  // ),
                 )),
             ListTile(
               leading: Icon(
