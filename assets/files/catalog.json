@@ -1,20 +1,36 @@
 {
-    "products":[
+    "products": [
         {
-            "id":1,
+            "id": 1,
             "name": "iphone 12",
             "desc": "apple iphone 12th generation",
             "price": 999,
             "color": "#33505a",
-            "image":"https://rukminim1.flixcart.com/image/832/832/kg8avm80/mobile/r/h/z/apple-iphone-12-dummyapplefsn-original-imafwg8duby8qbn4.jpeg?q=70"
-        },
+            "image": "https://rukminim1.flixcart.com/image/832/832/kg8avm80/mobile/r/h/z/apple-iphone-12-dummyapplefsn-original-imafwg8duby8qbn4.jpeg?q=70"
+        },generation
         {
-            "id":2,
+            "id": 2,
             "name": "Pixel 5",
-            "desc": "Google pixel 5th generation",
+            "desc": "Google pixel 5th ",
             "price": 699,
             "color": "#00ac51",
-            "image":"https://m.media-amazon.com/images/I/81-fNmQqlLL._SX679_.jpg"
+            "image": "https://m.media-amazon.com/images/I/81-fNmQqlLL._SX679_.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Ipad mini",
+            "desc": "Ipad mini 10th generation",
+            "price": 799,
+            "color": "#00ac51",
+            "image": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/ipad-air-finish-select-gallery-202211-purple-wifi?wid=5120&hei=2880&fmt=p-jpg&qlt=95&.v=1670631590784"
+        },
+        {
+            "id": 4,
+            "name": "Mac",
+            "desc": "Mac inbuild m2 chip ",
+            "price": 9099,
+            "color": "#00ac51",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTWdUXLTrEzQQeaxhDSRmDHZt3VwoKIlpm4JkX1NdSVA&s"
         }
     ]
 }
