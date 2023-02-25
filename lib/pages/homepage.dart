@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_catalog/models/catalog.dart';
+import 'package:flutter_catalog/utils/themes.dart';
 import 'dart:convert';
-
 import '../widgets/drawer.dart';
 import '../widgets/items_widgets.dart';
+import "package:velocity_x/velocity_x.dart";
 
 class HomePage extends StatefulWidget {
   @override
@@ -39,57 +40,61 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     // final dummyList = List.generate(10, (index) => CatalogModel.items[0]);
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        // backgroundColor: Colors.deepPurple,
-        title: const Text(
-          "Catalog App",
-          style: TextStyle(color: Colors.black),
+      body: SafeArea(
+        child: Container(
+          padding: Vx.m32,
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            CatalogHeader(),
+            if (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
+              CatalogList().expand()
+            else
+              Center(
+                child: CircularProgressIndicator(),
+              )
+          ]),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
-            ? GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 15,
-                  mainAxisSpacing: 15,
-                ),
-                itemBuilder: (context, index) {
-                  final item = CatalogModel.items[index];
-                  return Card(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15)),
-                      child: GridTile(
-                        header: Container(
-                          child: Text(
-                            item.name,
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          padding: EdgeInsets.all(12),
-                          decoration: BoxDecoration(color: Colors.deepPurple),
-                        ),
-                        child: Image.network(
-                          item.image,
-                        ),
-                        footer: Container(
-                          child: Text(
-                            item.price.toString(),
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          padding: EdgeInsets.all(12),
-                          decoration: BoxDecoration(color: Colors.black),
-                        ),
-                      ));
-                },
-                itemCount: CatalogModel.items.length,
-              )
-            : Center(
-                child: CircularProgressIndicator(),
-              ),
-      ),
-      drawer: MyDrawer(),
     );
+  }
+}
+
+class CatalogHeader extends StatelessWidget {
+  const CatalogHeader({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      "Catalog App".text.xl5.bold.color(MyTheme.darkBluishColor).make(),
+      "trending products".text.xl2.make(),
+    ]);
+  }
+}
+
+class CatalogList extends StatelessWidget {
+  const CatalogList({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder( 
+      shrinkWrap: true,
+      itemCount: CatalogModel.items.length,
+      itemBuilder: (context, index) {
+        final catalog = CatalogModel.items[index];
+        return CatalogItem(catalog: catalog);
+      },
+    );
+  }
+}
+
+class CatalogItem extends StatelessWidget {
+  final Item catalog;
+
+  const CatalogItem({super.key, required this.catalog})
+      : assert(catalog != null);
+
+  @override
+  Widget build(BuildContext context) {
+    return VxBox().white.square(100).make();
   }
 }
