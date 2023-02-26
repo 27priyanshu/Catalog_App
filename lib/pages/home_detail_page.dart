@@ -17,6 +17,24 @@ class HomeDetailPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       backgroundColor: MyTheme.creamColor,
+      bottomNavigationBar: Container(
+        color: Colors.white,
+        child: ButtonBar(
+          alignment: MainAxisAlignment.spaceBetween,
+          buttonPadding: EdgeInsets.zero,
+          children: [
+            "\$${catalog.price}".text.bold.xl4.red800.make(),
+            ElevatedButton(
+                    onPressed: () {},
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(MyTheme.darkBluishColor),
+                        shape: MaterialStateProperty.all(StadiumBorder())),
+                    child: "Buy".text.xl.make())
+                .wh(100, 50)
+          ],
+        ).p16(),
+      ),
       body: SafeArea(
         child: Column(children: [
           Hero(
@@ -30,6 +48,19 @@ class HomeDetailPage extends StatelessWidget {
             height: 30.0,
             child: Container(
               color: Colors.white,
+              width: context.screenWidth,
+              child: Column(children: [
+                catalog.name.text.xl4
+                    .color(MyTheme.darkBluishColor)
+                    .bold
+                    .make(),
+                catalog.desc.text
+                    .textStyle(context.captionStyle)
+                    .xl
+                    .color(MyTheme.darkBluishColor)
+                    .make(),
+                10.heightBox,
+              ]).py64(),
             ),
           ))
         ]),
