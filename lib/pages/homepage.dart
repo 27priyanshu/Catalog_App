@@ -1,11 +1,14 @@
+import 'dart:convert';
+
+import "package:velocity_x/velocity_x.dart";
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import 'package:flutter_catalog/models/catalog.dart';
 import 'package:flutter_catalog/utils/themes.dart';
-import 'dart:convert';
+
 import '../widgets/drawer.dart';
 import '../widgets/items_widgets.dart';
-import "package:velocity_x/velocity_x.dart";
 
 class HomePage extends StatefulWidget {
   @override
@@ -40,6 +43,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     // final dummyList = List.generate(10, (index) => CatalogModel.items[0]);
     return Scaffold(
+      backgroundColor: MyTheme.creamColor,
       body: SafeArea(
         child: Container(
           padding: Vx.m32,
@@ -76,7 +80,7 @@ class CatalogList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder( 
+    return ListView.builder(
       shrinkWrap: true,
       itemCount: CatalogModel.items.length,
       itemBuilder: (context, index) {
@@ -95,6 +99,58 @@ class CatalogItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return VxBox().white.square(100).make();
+    return VxBox(
+        child: Row(
+      children: [
+        CatalogImage(image: catalog.image),
+        Expanded(
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                catalog.name.text.lg.color(MyTheme.darkBluishColor).bold.make(),
+                catalog.desc.text
+                    .textStyle(context.captionStyle)
+                    .color(MyTheme.darkBluishColor)
+                    .make(),
+                10.heightBox,
+                ButtonBar(
+                  alignment: MainAxisAlignment.spaceBetween,
+                  buttonPadding: EdgeInsets.zero,
+                  children: [
+                    "\$${catalog.price}".text.bold.xl.make(),
+                    ElevatedButton(
+                        onPressed: () {},
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(
+                                MyTheme.darkBluishColor),
+                            shape: MaterialStateProperty.all(StadiumBorder())),
+                        child: "Buy".text.make())
+                  ],
+                ).pOnly(right: 8.0)
+              ]),
+        )
+      ],
+    )).white.roundedLg.square(150).make().py16();
+  }
+}
+
+class CatalogImage extends StatelessWidget {
+  const CatalogImage({
+    Key? key,
+    required this.image,
+  }) : super(key: key);
+  final String image;
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.network(image)
+        .box
+        .rounded
+        .p8
+        .color(MyTheme.creamColor)
+        .make()
+        .p16()
+        .w40(context);
   }
 }
