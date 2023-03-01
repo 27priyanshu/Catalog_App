@@ -20,6 +20,13 @@ class CatalogModel {
     Item(6, "Nothing phone", "Android", 490, "#00ac51",
         "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRcMUaZ_eALHFYgypM9-nocCqX8tnYVZOpYzO8d72dHIvnak9sXGtQt3SQiFW6A7psLtxbixpMVhRRhNWhO9dZjwDLwpzvYnLi97fqiyN1JdW4U35hkaAG_sA")
   ];
+
+  //Get item with id
+  static Item getbyId(int id) =>
+      items.firstWhere((element) => element.id == id, orElse: null);
+
+  //Get item with position
+  static Item getByPosition(int pos) => items[pos];
 }
 
 class Item {
