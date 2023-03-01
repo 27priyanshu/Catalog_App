@@ -8,7 +8,7 @@ class MyTheme {
       fontFamily: GoogleFonts.lato().fontFamily,
       cardColor: Colors.white,
       canvasColor: creamColor,
-      // buttonColor: darkBluishColor,
+      buttonColor: darkBluishColor,
       appBarTheme: AppBarTheme(
         color: Colors.white,
         elevation: 0.0,
