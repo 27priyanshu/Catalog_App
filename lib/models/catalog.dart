@@ -21,6 +21,12 @@ class CatalogModel {
         "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRcMUaZ_eALHFYgypM9-nocCqX8tnYVZOpYzO8d72dHIvnak9sXGtQt3SQiFW6A7psLtxbixpMVhRRhNWhO9dZjwDLwpzvYnLi97fqiyN1JdW4U35hkaAG_sA")
   ];
 
+  static final catModel = CatalogModel._internal();
+
+  CatalogModel._internal();
+
+  factory CatalogModel() => catModel;
+
   //Get item with id
   Item getbyId(int id) =>
       items.firstWhere((element) => element.id == id, orElse: null);
