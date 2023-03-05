@@ -48,16 +48,9 @@ class _cartTotal extends StatelessWidget {
   }
 }
 
-class _CartList extends StatefulWidget {
-  const _CartList({super.key});
-
-  @override
-  State<_CartList> createState() => _CartListState();
-}
-
-class _CartListState extends State<_CartList> {
-  @override
+class _CartList extends StatelessWidget{
   final _cart = CartModel();
+  @override
   Widget build(BuildContext context) {
     return _cart.items.isEmpty
         ? "Nothing to show".text.xl3.makeCentered()
@@ -69,9 +62,9 @@ class _CartListState extends State<_CartList> {
                     icon: Icon(Icons.remove_circle),
                     onPressed: () {
                       _cart.remove(_cart.items[index]);
-                      setState(() {
+                      // setState(() {
                         
-                      });
+                      // });
                     },
                   ),
                   title: _cart.items[index].name.text.make(),
