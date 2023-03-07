@@ -32,7 +32,7 @@ class _cartTotal extends StatelessWidget {
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
         VxBuilder(
           mutations: {AddMutation, RemoveMutation},
-          builder: (context, _ , VxStatus) {
+          builder: (ctx, _, VxStatus) {
             return "\$${_cart.totalPrice}"
                 .text
                 .xl5
