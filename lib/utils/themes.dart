@@ -8,12 +8,10 @@ class MyTheme {
       fontFamily: GoogleFonts.lato().fontFamily,
       cardColor: Colors.white,
       canvasColor: creamColor,
-      buttonColor: creamColor,
       appBarTheme: AppBarTheme(
         color: Colors.white,
         elevation: 0.0,
-        iconTheme: IconThemeData(color: Colors.black),
-        textTheme: Theme.of(context).textTheme,
+        iconTheme: IconThemeData(color: Colors.black), toolbarTextStyle: Theme.of(context).textTheme.bodyText2, titleTextStyle: Theme.of(context).textTheme.headline6,
       ));
 
   static ThemeData darkTheme(BuildContext context) => ThemeData(
@@ -21,12 +19,10 @@ class MyTheme {
       fontFamily: GoogleFonts.lato().fontFamily,
       cardColor: Colors.black,
       canvasColor: darkCreamColor,
-      buttonColor: lightBlueColor,
       appBarTheme: AppBarTheme(
         color: Colors.black,
         elevation: 0.0,
-        iconTheme: IconThemeData(color: Colors.black),
-        textTheme: Theme.of(context).textTheme,
+        iconTheme: IconThemeData(color: Colors.black), toolbarTextStyle: Theme.of(context).textTheme.bodyText2, titleTextStyle: Theme.of(context).textTheme.headline6,
       ));
 
   static Color creamColor = Color(0xfff5f5f5);
