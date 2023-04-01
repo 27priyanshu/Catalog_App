@@ -9,8 +9,7 @@ class HomeDetailPage extends StatelessWidget {
   // const HomeDetailPage({super.key});
   final Item catalog;
 
-  const HomeDetailPage({super.key, required this.catalog})
-      : assert(catalog != null);
+  const HomeDetailPage({super.key, required this.catalog});
   // super(key: key);
 
   @override

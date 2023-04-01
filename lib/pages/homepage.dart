@@ -68,14 +68,14 @@ class _HomePageState extends State<HomePage> {
             textStyle:
                 TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
       ),
-      backgroundColor: context.theme.buttonColor,
+      backgroundColor: context.theme.canvasColor,
       body: SafeArea(
         child: Container(
           padding: Vx.m32,
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             CatalogHeader(),
-            if (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
+            if (CatalogModel.items.isNotEmpty)
               CatalogList().py16().expand()
             else
               Center(
